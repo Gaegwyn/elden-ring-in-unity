@@ -1463,6 +1463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7660352398275891633, guid: 9ea758b4a65ce3642a760fa0c3e0fe98, type: 3}
+      propertyPath: StartGameAsClient
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
