@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WorldSaveGameManager : MonoBehaviour
 {
-    public static WorldSaveGameManager Instance;
+    public static WorldSaveGameManager Instance { get; private set; }
 
     [SerializeField] int WorldSceneIndex = 1;
 
