@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class WorldSaveGameManager : MonoBehaviour
 {
-    public static WorldSaveGameManager Instance { get; private set; }
+    public static WorldSaveGameManager instance { get; private set; }
 
     [SerializeField] int WorldSceneIndex = 1;
 
     private void Awake()
     {
         // Singleton
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
         else
         {
@@ -32,5 +32,10 @@ public class WorldSaveGameManager : MonoBehaviour
         AsyncOperation LoadOperation = SceneManager.LoadSceneAsync(WorldSceneIndex);
 
         yield return null;
+    }
+
+    public int GetWorldSceneIndex()
+    { 
+        return WorldSceneIndex; 
     }
 }

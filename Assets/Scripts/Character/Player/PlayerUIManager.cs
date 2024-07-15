@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
 {
-    public static PlayerUIManager Instance { get; private set; }
+    public static PlayerUIManager instance { get; private set; }
 
     [Header("NETWORK JOIN")]
     [SerializeField] bool StartGameAsClient;
@@ -13,9 +13,9 @@ public class PlayerUIManager : MonoBehaviour
     private void Awake()
     {
         // Singleton
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
         else
         {
