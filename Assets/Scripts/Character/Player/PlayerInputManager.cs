@@ -13,6 +13,9 @@ public class PlayerInputManager : MonoBehaviour
     PlayerControls playerControls;
 
     [SerializeField] Vector2 movementInput;
+    [SerializeField] public float verticalInput;
+    [SerializeField] public float horizontalInput;
+    [SerializeField] public float moveAmount;
 
     private void Awake()
     {
@@ -63,4 +66,27 @@ public class PlayerInputManager : MonoBehaviour
         SceneManager.activeSceneChanged -= OnSceneChange;
     }
 
+    private void Update()
+    {
+        HandleMovementInput();
+    }
+
+    private void HandleMovementInput()
+    {
+        verticalInput = movementInput.y;
+        horizontalInput = movementInput.x;
+
+        // Returns the absolute number (number without the negative sign)
+        moveAmount = Mathf.Clamp01(Mathf.Abs(verticalInput + horizontalInput));
+
+        // Clamp to either 0, 0.5, or 1.
+        if (moveAmount <= 0.5f && moveAmount > 0)
+        {
+            moveAmount = 0.5f;
+        }
+        else if (moveAmount >= 0.5f && moveAmount <= 1)
+        {
+            moveAmount = 1;
+        }
+    }
 }
